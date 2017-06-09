@@ -1,4 +1,4 @@
 require 'sass/plugin/rack'
-require './app'
+require './base'
 
 run Sinatra::Application

@@ -7,3 +7,7 @@ group :test do
   gem 'rack-test'
   gem 'rspec', '~> 3.6'
 end
+
+group :development do
+  gem 'shotgun'
+end
