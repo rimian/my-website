@@ -10,5 +10,6 @@ get '/app.css' do
 end
 
 get '/' do
+  @title = 'Rimian Perkins - Freelance Software Engineer'
   erb :app
 end

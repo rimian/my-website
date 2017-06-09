@@ -16,14 +16,15 @@ $base-spacing: $base-line-height * 1em;
 $small-spacing: $base-spacing / 2;
 $base-z-index: 0;
 
-// Colors
+// Color Palette
+$white: #eee;
 $blue: #1565c0;
-$dark-gray: #333;
+$dark-gray: #39506b;
 $medium-gray: #999;
 $light-gray: #ddd;
 
 // Font Colors
-$base-font-color: $dark-gray;
+$base-font-color: $white;
 $action-color: $blue;
 
 // Border
@@ -31,7 +32,7 @@ $base-border-color: $light-gray;
 $base-border: 1px solid $base-border-color;
 
 // Background Colors
-$base-background-color: #fff;
+$base-background-color: $dark-gray;
 $secondary-background-color: tint($base-border-color, 75%);
 
 // Focus
