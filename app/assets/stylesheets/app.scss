@@ -1,6 +1,14 @@
 @import 'bourbon/bourbon';
 @import 'base/base';
 
+$neat-grid: (
+  columns: 12,
+  gutter: 20px,
+);
+
 body {
   background-color: $base-background-color;
+  > section {
+
+  }
 }
