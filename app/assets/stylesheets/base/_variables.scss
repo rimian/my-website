@@ -17,11 +17,12 @@ $small-spacing: $base-spacing / 2;
 $base-z-index: 0;
 
 // Color Palette
-$white: #eee;
+$white: #fcfcfc;
 $blue: #1565c0;
 $dark-gray: #39506b;
 $medium-gray: #999;
 $light-gray: #ddd;
+$black: #000;
 
 // Font Colors
 $base-font-color: $white;
@@ -33,7 +34,11 @@ $base-border: 1px solid $base-border-color;
 
 // Background Colors
 $base-background-color: $dark-gray;
-$secondary-background-color: tint($base-border-color, 75%);
+$secondary-background-color: $white;
+
+// Foreground Colors
+$base-foreground-color: $white;
+$secondary-foreground-color: $black;
 
 // Focus
 $focus-outline-color: transparentize($action-color, 0.4);

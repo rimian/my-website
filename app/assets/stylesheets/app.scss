@@ -8,6 +8,11 @@ $neat-grid: (
 
 body {
   background-color: $base-background-color;
+  color: $base-foreground-color;
+  > header {
+    background-color: $secondary-background-color;
+    color: $secondary-foreground-color;
+  }
   > section {
 
   }
