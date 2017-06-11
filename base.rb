@@ -11,5 +11,6 @@ end
 
 get '/' do
   @title = 'Rimian Perkins - Freelance Software Engineer'
+  @google_analytics_code = 'UA-100831510-1'
   erb :app
 end
