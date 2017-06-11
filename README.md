@@ -1,6 +1,6 @@
 # My Website
 
-![Build Status](https://circleci.com/gh/rimian/my-website.png?circle-token=:circle-token)
+![Build Status](https://circleci.com/gh/rimian/single-page-website.png?circle-token=:circle-token)
 
 # Installation
 
