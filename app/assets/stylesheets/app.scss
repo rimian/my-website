@@ -9,15 +9,14 @@ $neat-grid: (
 
 body {
   background-color: $base-background-color;
-  color: $base-foreground-color;
   > div {
-    @include grid-container;
     max-width: 1000px;
     margin: 0 auto;
+    @include grid-container;
+    background-color: $secondary-background-color;
+    color: $secondary-foreground-color;
     > header {
       @include grid-column(6);
-      background-color: $secondary-background-color;
-      color: $secondary-foreground-color;
     }
     > section {
       @include grid-column(6);

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200');
 
 // Breakpoints
 $medium-screen: 600px;
@@ -5,7 +6,7 @@ $large-screen: 900px;
 
 // Typography
 $base-font-family: $font-stack-system;
-$heading-font-family: $base-font-family;
+$heading-font-family: 'Source Sans Pro', sans-serif;
 
 // Line height
 $base-line-height: 1.5;
@@ -22,7 +23,7 @@ $white: #fcfcfc;
 $blue: #1565c0;
 $dark-gray: #39506b;
 $medium-gray: #999;
-$light-gray: #ddd;
+$light-gray: #f1f1f1;
 $black: #000;
 
 // Font Colors
@@ -34,12 +35,13 @@ $base-border-color: $light-gray;
 $base-border: 1px solid $base-border-color;
 
 // Background Colors
-$base-background-color: $dark-gray;
-$secondary-background-color: $white;
+$base-background-color: $white;
+$secondary-background-color: $light-gray;
 
 // Foreground Colors
-$base-foreground-color: $white;
-$secondary-foreground-color: $black;
+$base-foreground-color: $dark-gray;
+$secondary-foreground-color: $dark-gray;
+$heading-color: $black;
 
 // Focus
 $focus-outline-color: transparentize($action-color, 0.4);
