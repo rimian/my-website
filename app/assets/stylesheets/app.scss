@@ -4,7 +4,7 @@
 
 $neat-grid: (
   columns: 6,
-  gutter: 20px,
+  gutter: $gutter,
 );
 
 body {
@@ -15,11 +15,34 @@ body {
     @include grid-container;
     background-color: $secondary-background-color;
     color: $secondary-foreground-color;
+    border: $base-border;
     > header {
-      @include grid-column(6);
+      background-image: url('https://user-images.githubusercontent.com/64749/27015938-2454e2aa-4f5d-11e7-92f7-0d53ddd68141.jpg');
+      background-size: 100%;
+      border: $base-border;
+      width: 100%;
+      margin-left: 0;
+      float: left;
+      > section {
+        padding: $gutter;
+        background-color: $base-background-color;
+        margin-bottom: 14em;
+      }
+      h1 {
+        padding-left: $gutter;
+      }
     }
     > section {
       @include grid-column(6);
+    }
+    > footer {
+      margin-left: 0;
+      float: left;
+      padding: $gutter;
+      width: 100%;
+      background-color: $dark-gray;
+      color: $light-gray;
+      border: $base-border;
     }
   }
 }
