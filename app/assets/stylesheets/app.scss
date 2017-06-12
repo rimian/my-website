@@ -8,41 +8,43 @@ $neat-grid: (
 );
 
 body {
-  background-color: $base-background-color;
   > div {
     max-width: 1000px;
     margin: 0 auto;
-    @include grid-container;
     background-color: $secondary-background-color;
     color: $secondary-foreground-color;
     border: $base-border;
+    > nav {
+      @include grid-container;
+      > div {
+        @include grid-column(6);
+        padding: $gutter 0;
+      }
+    }
     > header {
+      @include grid-container;
       background-image: url('https://user-images.githubusercontent.com/64749/27015938-2454e2aa-4f5d-11e7-92f7-0d53ddd68141.jpg');
       background-size: 100%;
-      border: $base-border;
-      width: 100%;
-      margin-left: 0;
-      float: left;
-      > section {
-        padding: $gutter;
-        background-color: $base-background-color;
-        margin-bottom: 14em;
-      }
       h1 {
-        padding-left: $gutter;
+        @include grid-column(6);
+        margin-top: 4em;
       }
     }
     > section {
-      @include grid-column(6);
+      @include grid-container;
+      > article {
+        @include grid-column(6);
+      }
     }
     > footer {
-      margin-left: 0;
-      float: left;
-      padding: $gutter;
-      width: 100%;
+      @include grid-container;
       background-color: $dark-gray;
       color: $light-gray;
       border: $base-border;
+      > p {
+        @include grid-column(6);
+        padding: $gutter 0;
+      }
     }
   }
 }
