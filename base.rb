@@ -19,36 +19,38 @@ get '/success' do
 end
 
 post '/' do
-  configure_pony
+  # configure_pony
   # name = params[:name]
   # sender_email = params[:email]
   # message = params[:message]
   logger.error params.inspect
+
   begin
-    Pony.mail(
-      :from => ENV['SENDGRID_RECIPIENT_ADDRESS'], # "#{name}<#{sender_email}>",
-      :to => ENV['SENDGRID_RECIPIENT_ADDRESS'], #'example@gmail.com',
-      :subject => 'test sendgrid', # "#{name} has contacted you",
-      :body => 'hello world', #"#{message}",
-    )
+
+    Mail.defaults do
+      delivery_method :smtp, {
+        :address => 'smtp.sendgrid.net',
+        :port => 587,
+        :domain => 'heroku.com',
+        :user_name => ENV['SENDGRID_USERNAME'],
+        :password => ENV['SENDGRID_PASSWORD'],
+        :authentication => 'plain',
+        :enable_starttls_auto => true
+      }
+    end
+
+    mail = Mail.deliver do
+        to ENV['SENDGRID_RECIPIENT_ADDRESS']
+        from ENV['SENDGRID_RECIPIENT_ADDRESS']
+        subject 'Feedback for my Sintra app'
+        text_part do
+          'hello world'
+        end
+    end
+
     redirect '/success'
   rescue
     @exception = $!
-    erb :boom
+    
   end
-end
-
-def configure_pony
-  Pony.options = {
-    :via => :smtp,
-    :via_options => {
-      :address              => 'smtp.sendgrid.net',
-      :port                 => '587',
-      :user_name            => ENV['SENDGRID_USERNAME'],
-      :password             => ENV['SENDGRID_PASSWORD'],
-      :authentication       => :plain,
-      :enable_starttls_auto => true,
-      :domain               => 'heroku.com'
-    }
-  }
 end
