@@ -11,11 +11,10 @@ body {
   > div {
     max-width: 1000px;
     margin: 0 auto;
-    background-color: $secondary-background-color;
-    color: $secondary-foreground-color;
     border: $base-border;
     > nav {
       @include grid-container;
+      border-bottom: $base-border;
       > div {
         @include grid-column(6);
         padding: $gutter 0;
@@ -34,6 +33,7 @@ body {
       @include grid-container;
       > article {
         @include grid-column(6);
+        margin-top: 1em;
       }
     }
     > footer {
@@ -46,5 +46,86 @@ body {
         padding: $gutter 0;
       }
     }
+  }
+}
+
+@import '//fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic';
+@import '//fonts.googleapis.com/css?family=Titillium+Web:400,400italic,600italic,600,700,700italic,900,300italic,300,200italic,200';
+
+article {
+  $base-line-height: 1.5em !default;
+  $base-spacing: 1.5em !default;
+  $sans-serif: "PT Sans", sans-serif;
+  $sans-serif-2: "Titillium Web", sans-serif;
+
+  @include clearfix;
+  font-family: $sans-serif;
+  text-align: left;
+
+  h1,
+  h2,
+  h3,
+  p {
+    margin: 0;
+  }
+
+  hr {
+    border-bottom: 1px solid $medium-gray;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    margin: $base-spacing 0;
+  }
+
+  p {
+    color: $base-font-color;
+    line-height: $base-line-height;
+  }
+
+  a {
+    color: $action-color;
+    text-decoration: none;
+  }
+
+  h1 {
+    font-family: $sans-serif-2;
+    font-size: 2em;
+    font-weight: 600;
+    margin-bottom: 0.6em;
+  }
+
+  h2 {
+    font-family: $sans-serif;
+    font-size: 1.2em;
+    font-weight: 400;
+    line-height: 1.4em;
+    margin-bottom: 1.2em;
+  }
+
+  h3 {
+    font-family: $sans-serif-2;
+    font-size: 1em;
+    font-weight: 700;
+    line-height: 1.4em;
+    margin-bottom: 0.5em;
+    text-transform: uppercase;
+  }
+
+  p {
+    font-family: $sans-serif;
+    font-weight: 300;
+    letter-spacing: 1;
+    margin-bottom: 1.5em;
+
+    span {
+      font-family: $sans-serif;
+      font-size: 0.8em;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+  }
+
+  hr {
+    width: 3em;
   }
 }
