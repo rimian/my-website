@@ -1,0 +1,15 @@
+{
+  "name": "single-page-website",
+  "description": "This is my web site, yo.",
+  "main": "",
+  "license": "MIT",
+  "homepage": "http://rimian.com.au",
+  "private": false,
+  "ignore": [
+    "**/.*",
+    "bower_components"
+  ],
+  "dependencies": {
+    "uikit": "3.0.0-beta.42"
+  }
+}
