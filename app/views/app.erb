@@ -6,6 +6,7 @@
   <title>Freelace Software Engineer - Web Developer - Rimian Perkins</title>
   <link rel="stylesheet" href="/app.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.42/js/uikit.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.42/js/uikit-icons.min.js"></script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -15,11 +16,33 @@
     ga('send', 'pageview');
   </script>
 </head>
-  <body>
-    <div>
+<body>
+  <div class="uk-offcanvas-content">
+    <div id="off-canvas" uk-offcanvas>
+      <div class="uk-offcanvas-bar">
+        <button class="uk-offcanvas-close" type="button" uk-close></button>
+      </div>
+    </div>
+    <div class="uk-card uk-card-body uk-card-small uk-background-primary" style="z-index: 980;" uk-sticky="bottom: #offset">
+      <div class="uk-visible@s">
+        <a class="uk-button uk-button-small" href="#footer" uk-scroll>One</a>
+        <a class="uk-button uk-button-small" href="#footer" uk-scroll>Two</a>
+        <a class="uk-button uk-button-small" href="#footer" uk-scroll>Contact</a>
+      </div>
+      <div class="uk-hidden@s uk-position-center-right">
+        <a href="#off-canvas" uk-toggle class="uk-button uk-button-small">
+          <span uk-icon="menu"></span>
+        </a>
+      </div>
+    </div>
+    <div class="uk-cover-container uk-height-large uk-visible@s">
+      <img src="https://user-images.githubusercontent.com/64749/27015938-2454e2aa-4f5d-11e7-92f7-0d53ddd68141.jpg" alt="" uk-cover>
+    </div>
+
+    <div class="uk-container">
       <nav>
         <div>
-          <a href="mailto:<%= ENV['SENDGRID_RECIPIENT_ADDRESS'] %>">Contact</a>
+          <!-- <a href="mailto:<%= ENV['SENDGRID_RECIPIENT_ADDRESS'] %>">Contact</a> -->
         </div>
       </nav>
       <header>
@@ -77,22 +100,30 @@
           </p>
         </article>
       </section>
-      <footer>
-        <p>
-          &copy; Rimian Perkins <%= Date.today.year %> |
-          <a href="mailto:<%= ENV['SENDGRID_RECIPIENT_ADDRESS'] %>">
-            Contact
-          </a>
-          |
-          <a href="https://www.linkedin.com/in/rimianperkins/" target="_new">
-            Linkedin
-          </a>
-          |
-          <a href="https://stackoverflow.com/users/63810/rimian" target="_new">
-            Stack Overflow
-          </a>
-        </p>
-      </footer>
     </div>
+    <footer id="footer" class="uk-background-secondary">
+      <div class="uk-container">
+        <div uk-grid>
+            <div class="uk-width-1-2">&copy; Rimian Perkins <%= Date.today.year %></div>
+            <div class="uk-width-1-2">
+              <a href="mailto:<%= ENV['SENDGRID_RECIPIENT_ADDRESS'] %>">
+                Email
+              </a>
+              |
+              <a href="https://www.linkedin.com/in/rimianperkins/" target="_new">
+                Linkedin
+              </a>
+              |
+              <a href="https://stackoverflow.com/users/63810/rimian" target="_new">
+                Stack Overflow
+              </a>
+            </div>
+        </div>
+        <p>
+        </p>
+      </div>
+    </footer>
+
+  </div>
   </body>
 </html>
