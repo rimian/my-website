@@ -21,6 +21,12 @@
     <div id="off-canvas" uk-offcanvas>
       <div class="uk-offcanvas-bar">
         <button class="uk-offcanvas-close" type="button" uk-close></button>
+
+        <ul class="uk-nav uk-nav-default">
+          <li><a href="#about" uk-scroll>About</a></li>
+          <li><a href="#services" uk-scroll>Services</a></li>
+          <li><a href="#footer" uk-scroll>Contact</a></li>
+        </ul>
       </div>
     </div>
     <div class="uk-card uk-card-body uk-card-small uk-background-primary" style="z-index: 980;" uk-sticky="bottom: #offset">
@@ -31,30 +37,23 @@
       </div>
       <div class="uk-hidden@s uk-position-center-right">
         <a href="#off-canvas" uk-toggle class="uk-button uk-button-small">
-          <span uk-icon="menu"></span>
+          <span uk-icon="menu" class="uk-active"></span>
         </a>
       </div>
     </div>
-    <div class="uk-cover-container uk-height-large uk-visible@s">
-      <img src="https://user-images.githubusercontent.com/64749/27015938-2454e2aa-4f5d-11e7-92f7-0d53ddd68141.jpg" alt="" uk-cover>
+    <div class="uk-cover-container uk-height-medium uk-visible@s">
+      <img src="https://user-images.githubusercontent.com/64749/27015938-2454e2aa-4f5d-11e7-92f7-0d53ddd68141.jpg" alt="banner" uk-cover>
     </div>
 
-    <div class="uk-container">
-      <nav>
-        <div>
-          <!-- <a href="mailto:<%= ENV['SENDGRID_RECIPIENT_ADDRESS'] %>">Contact</a> -->
-        </div>
-      </nav>
-      <header>
-      </header>
+    <div class="uk-container uk-margin-large-top">
       <section id="about">
         <article>
-          <h1>
+          <h1 class="uk-heading-primary">
             Rimian Perkins
           </h1>
-          <h2>
+          <h3>
             I'm a freelance Software Engineer and Web Developer with over 15 years experience. If you need a Web Developer to build a website for your business or a Software Engineer for an enterprise application, I can help you!
-          </h2>
+          </h3>
           <p>
             <span>Based in NSW, Australia</span>,
             I work remotely on a contract basis. I do travel to Sydney and Melbourne for work and sometimes I visit a client for a few days then I do the actual coding work remotely. These days, having someone on-site is not really necessary if you're hiring an experienced person. Meetings can be held online via Google Hangouts or Skype. Project managers and stake holders can stay informed through a raft of online tools such as bug trackers, test suites, project management tools and monitoring systems.
@@ -101,9 +100,39 @@
         </article>
       </section>
     </div>
+    <div class="uk-card uk-card-body uk-background-muted">
+      <div class="uk-container">
+        <h2>
+          Contact
+        </h2>
+        <form>
+          <label>
+            Your Name
+          </label>
+          <input class="uk-input" type="text">
+          <label>
+            Your Phone Number
+          </label>
+          <input class="uk-input" type="text">
+          <label>
+            Your Email
+          </label>
+          <input class="uk-input" type="text">
+          <label>
+            Additional Information:
+          </label>
+          <textarea class="uk-textarea"></textarea>
+          <div class="uk-width-1-1 uk-margin-top">
+            <button class="uk-button uk-button-secondary uk-align-right">
+              Send Message
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
     <footer id="footer" class="uk-background-secondary">
       <div class="uk-container">
-        <div uk-grid>
+        <div uk-grid class="uk-margin-large-top uk-margin-large-bottom">
             <div class="uk-width-1-2">&copy; Rimian Perkins <%= Date.today.year %></div>
             <div class="uk-width-1-2">
               <a href="mailto:<%= ENV['SENDGRID_RECIPIENT_ADDRESS'] %>">
