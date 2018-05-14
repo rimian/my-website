@@ -6,7 +6,32 @@
   <title>Freelace Software Engineer - Web Developer - Rimian Perkins</title>
   <link rel="stylesheet" href="/app.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.42/js/uikit.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.42/js/uikit-icons.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script>
+  $(document).ready(function() {
+    $('#send').click(function(e) {
+      e.preventDefault();
+      const modalSuccess = UIkit.modal('#modal-success');
+      const modalError = UIkit.modal('#modal-error');
+      const data = $('form').serialize();
+
+      $.ajax({
+        url: '/',
+        type: 'post',
+        dataType: 'json',
+        accepts: 'application/json',
+        data: data,
+        success: function(data) {
+          modalSuccess.show();
+        },
+        error: function(jqXHR, textStatus, msg) {
+          $('#modal-error .msg').text(msg);
+          modalError.show();
+        }
+      });
+    });
+  });
+  </script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -17,6 +42,18 @@
   </script>
 </head>
 <body>
+  <div id="modal-success" uk-modal>
+    <div id="success" uk-alert class="uk-alert uk-alert-success uk-inline uk-width-1-1">
+      Thank you! Your message has been sent.
+      <a class="uk-modal-close uk-position-center-right uk-margin-right" uk-close></a>
+    </div>
+  </div>
+  <div id="modal-error" uk-modal>
+    <div id="error" uk-alert class="uk-alert uk-alert-danger uk-inline uk-width-1-1">
+      Error! <span class="msg"></span>
+      <a class="uk-modal-close uk-position-center-right uk-margin-right" uk-close></a>
+    </div>
+  </div>
   <div class="uk-offcanvas-content">
     <div id="off-canvas" uk-offcanvas>
       <div class="uk-offcanvas-bar">
@@ -101,34 +138,32 @@
       </section>
     </div>
     <div class="uk-card uk-card-body uk-background-muted">
-      <div class="uk-container">
-        <h2>
-          Contact
-        </h2>
-        <form>
-          <label>
-            Your Name
-          </label>
-          <input class="uk-input" type="text">
-          <label>
-            Your Phone Number
-          </label>
-          <input class="uk-input" type="text">
-          <label>
-            Your Email
-          </label>
-          <input class="uk-input" type="text">
-          <label>
-            Additional Information:
-          </label>
-          <textarea class="uk-textarea"></textarea>
-          <div class="uk-width-1-1 uk-margin-top">
-            <button class="uk-button uk-button-secondary uk-align-right">
-              Send Message
-            </button>
-          </div>
-        </form>
-      </div>
+      <h2>
+        Contact
+      </h2>
+      <form action="">
+        <label>
+          Your Name
+        </label>
+        <input name="firstName" class="uk-input" type="text" value="h">
+        <label>
+          Your Phone Number
+        </label>
+        <input name="phone" class="uk-input" type="text">
+        <label>
+          Your Email
+        </label>
+        <input name="email" class="uk-input" type="text">
+        <label>
+          Additional Information:
+        </label>
+        <textarea name="info" class="uk-textarea"></textarea>
+        <div class="uk-width-1-1 uk-margin-top">
+          <button id="send" class="uk-button uk-button-secondary uk-align-right">
+            Send Message
+          </button>
+        </div>
+      </form>
     </div>
     <footer id="footer" class="uk-background-secondary">
       <div class="uk-container">
