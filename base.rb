@@ -21,7 +21,7 @@ post '/' do
 
   message_params = {
     from: params[:email],
-    to: ENV['SENDGRID_RECIPIENT_ADDRESS'],
+    to: ENV['WEBFORM_RECIPIENT'],
     subject: "Webform: #{params[:name]}",
     text: params[:info]
   }
