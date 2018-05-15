@@ -17,13 +17,13 @@ get '/' do
 end
 
 post '/' do
-  mg_client = Mailgun::Client.new ENV['MAILGUN_API_KEY']
+  mg_client = Mailgun::Client.new(ENV['MAILGUN_API_KEY'])
 
   message_params = {
-    from: params[:email],
+    from: ENV['WEBFORM_RECIPIENT'],
     to: ENV['WEBFORM_RECIPIENT'],
-    subject: "Webform: #{params[:name]}",
-    text: params[:info]
+    subject: "Webform: #{params['name']}",
+    text: "Name: #{params['name']}\nEmail: #{params['email']}\nPhone: #{params['phone']}\nInfo: #{params['info']}\n"
   }
 
   result = mg_client.send_message ENV['MAILGUN_DOMAIN'], message_params
