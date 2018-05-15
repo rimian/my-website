@@ -20,7 +20,7 @@ post '/' do
   mg_client = Mailgun::Client.new ENV['MAILGUN_API_KEY']
 
   message_params = {
-    from: params[:email],
+    from: ENV['WEBFORM_RECIPIENT'],
     to: ENV['WEBFORM_RECIPIENT'],
     subject: "Webform: #{params[:name]}",
     text: params[:info]
