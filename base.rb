@@ -23,7 +23,7 @@ post '/' do
     from: ENV['WEBFORM_RECIPIENT'],
     to: ENV['WEBFORM_RECIPIENT'],
     subject: "Webform: #{params['name']}",
-    text: "#{params['name']}\n#{params['info']}\n"
+    text: "#{params['name']}\n#{params['email']}\n#{params['phone']}\n#{params['info']}\n"
   }
 
   result = mg_client.send_message ENV['MAILGUN_DOMAIN'], message_params
