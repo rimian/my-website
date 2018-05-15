@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'json'
+require 'mailgun'
 
 configure do
   set :root, 'app'
@@ -16,5 +17,16 @@ get '/' do
 end
 
 post '/' do
+  mg_client = Mailgun::Client.new ENV['MAILGUN_API_KEY']
+
+  message_params = {
+    from: params[:email],
+    to: ENV['SENDGRID_RECIPIENT_ADDRESS'],
+    subject: "Webform: #{params[:name]}",
+    text: params[:info]
+  }
+
+  result = mg_client.send_message ENV['MAILGUN_DOMAIN'], message_params
+
   halt 200, params.to_json
 end
