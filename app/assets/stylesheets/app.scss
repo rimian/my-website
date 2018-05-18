@@ -2,7 +2,7 @@
 // The order of these is important.
 
 // 1. Your custom variables and variable overwrites.
-// @import '';
+@import 'variables';
 
 // 2. Import default variables and available mixins.
 @import 'uikit/src/scss/variables-theme.scss';
